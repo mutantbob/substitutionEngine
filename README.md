@@ -22,6 +22,8 @@ help you get started:
     }
     ```
 
+The HTML template could look like this: 
+
     ```html
     <table>
     <tr><th> col 1</th> <th> col 2</th></tr>
@@ -31,6 +33,7 @@ help you get started:
     </table>
     ```
 
+License:
 
     This is free software: you can redistribute it and/or modify it
     under the terms of the GNU Lesser General Public License as
