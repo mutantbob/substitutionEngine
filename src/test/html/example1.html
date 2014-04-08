@@ -1,0 +1,65 @@
+<html>
+<head>
+<script src="../../main/javascript/substitutionEngine.js"> </script>
+<script>
+
+function getJSONData1()
+{
+    req = new XMLHttpRequest()
+    // synchronous requests like this are frowned upon
+    req.open("GET", "../javascript/data1.json", false)
+    req.send()
+console.log(req.response)
+    return JSON.parse(req.response)
+}
+
+function getJSONData2()
+{
+    req = new XMLHttpRequest()
+    // synchronous requests like this are frowned upon
+    req.open("GET", "../javascript/data2.json", false)
+    req.send()
+console.log(req.response)
+    return JSON.parse(req.response)
+}
+
+function updateTemplate1() {
+    var data1 = getJSONData1()
+    se1.substituteForData(data1)
+}
+
+function updateTemplate2() {
+    var data2 = getJSONData2()
+    se1.substituteForData(data2)
+}
+
+window.onload = function() {
+console.log("bacon")
+    var template = document.getElementById("template1")
+    se1 = new SubstitutionEngine(template)
+    updateTemplate1()
+}
+</script>
+</head>
+<body>
+
+<button onclick="updateTemplate1();">data set 1</button>
+<button onclick="updateTemplate2();">data set 2</button>
+
+<table id="template1" border=1>
+<tr><th substitutionPath="col1"> col 1</th> <th substitutionPath="col2"> col 2</th></tr>
+<tbody substitutionArrayPath="monkeys">
+<tr><td substitutionPath="col1"></td><td substitutionPath="col2"></td></tr>
+</tbody>
+</table>
+
+If there is no data in the table, you're
+probably <a href="http://stackoverflow.com/questions/21855355/loading-a-text-file-through-ajax-gives-restricted-uri-error">browsing
+this page as a local file and running into security restrictions</a>.
+If you are running <a href="https://getfirebug.com/">firebug</a>
+you'll see an "NS_ERROR_DOM_BAD_URI: Access to restricted URI denied".
+Upload this HTML and the ../javascript/*.json to a web server to work
+around this problem.
+
+</body>
+</html>

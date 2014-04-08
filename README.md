@@ -22,12 +22,14 @@ help you get started:
 
 The HTML template could look like this: 
 
-    <table>
-    <tr><th> col 1</th> <th> col 2</th></tr>
-    <tbody id="template1" substitutionArrayPath="monkeys">
+    <table id="template1" border=1>
+    <tr><th substitutionPath="col1"> col 1</th> <th substitutionPath="col2"> col 2</th></tr>
+    <tbody substitutionArrayPath="monkeys">
     <tr><td substitutionPath="col1"></td><td substitutionPath="col2"></td></tr>
     </tbody>
     </table>
+
+You can find a more detailed example in src/test/html/example1.html
 
 License:
 
