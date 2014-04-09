@@ -9,25 +9,29 @@ javascript that constructs the HTML nodes.
 If you wanted to apply this to your own HTML pages this example should
 help you get started:
 
-    function updateTemplate1() {
-        var data1 = getJSONData1()
-	se1.substituteForData(data1)
-    }
+```javascript
+function updateTemplate1() {
+    var data1 = getJSONData1()
+    se1.substituteForData(data1)
+}
 
-    window.onload = function() {
-	var template = document.getElementById("template1")
-	se1 = new SubstitutionEngine(template)
-	updateTemplate1()
-    }
+window.onload = function() {
+    var template = document.getElementById("template1")
+    se1 = new SubstitutionEngine(template)
+    updateTemplate1()
+}
+```
 
 The HTML template could look like this: 
 
-    <table id="template1" border=1>
-    <tr><th substitutionPath="col1"> col 1</th> <th substitutionPath="col2"> col 2</th></tr>
-    <tbody substitutionArrayPath="monkeys">
-    <tr><td substitutionPath="col1"></td><td substitutionPath="col2"></td></tr>
-    </tbody>
-    </table>
+```html
+<table id="template1" border=1>
+<tr><th substitutionPath="col1"> col 1</th> <th substitutionPath="col2"> col 2</th></tr>
+<tbody substitutionArrayPath="monkeys">
+<tr><td substitutionPath="col1"></td><td substitutionPath="col2"></td></tr>
+</tbody>
+</table>
+```
 
 You can find a more detailed example in src/test/html/example1.html
 
